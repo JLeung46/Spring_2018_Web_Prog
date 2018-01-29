@@ -33,6 +33,6 @@ can leverage my current skill set using the web based technologies and other ski
 Although I’m seeking a career path in data science and machine learning after I graduate, I still see 
 value in learning the skills and technologies that will be developed in this class.  I believe 
 learning to build a fully functioning app over an extended period of time will help build a strong 
-foundation for tackling large, complex programming assignments that involve many moving parts.  
+foundation for tackling large, complex programming assignments that involve many moving parts.
 Additionally, I hope to use web technologies to develop data driven web applications that I can 
 showcase on my portfolio and hopefully extend these skills further into a career. 
