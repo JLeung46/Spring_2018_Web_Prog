@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CSS Menu</title>
+		<style>
+
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+
+			li {
+				float: left;
+			}
+
+			li a, .dropdown_button {
+				display: inline-block;
+				text-decoration: none;
+				padding: 10px 15px;
+			}
+
+
+			li.dropdown_menu {
+				display: inline-block;
+
+
+			}
+
+			.dropdown_content {
+				display: none;
+				position: absolute;
+
+			}
+
+			.dropdown_content a {
+				color: black;
+				display: block;
+			}
+
+			.dropdown_content a:hover {
+				text-decoration: underline;
+			}
+
+			.dropdown_menu:hover .dropdown_content {
+				display: block;
+
+			}
+
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="dropdown_menu">
+				<a href="#" class="dropdown_button">File</button>
+				<div class="dropdown_content">
+					<a href="#">New File</a>
+					<a href="#">Open File</a>
+					<a href="#">Save</a>
+					<a href="#">Save As</a>
+				</div>
+			</li>
+			<li class="dropdown_menu">
+				<a href="#" class="dropdown_button">Edit</a>
+				<div class="dropdown_content">
+					<a href="#">Undo</a>
+					<a href="#">Redo</a>
+					<a href="#">Copy</a>
+					<a href="#">Paste</a>
+				</div>
+			</li>
+		</ul>
+
+<!-- comments -->
+
+	</body>
+</html>
+</html>
