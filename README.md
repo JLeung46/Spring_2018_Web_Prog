@@ -36,3 +36,5 @@ learning to build a fully functioning app over an extended period of time will h
 foundation for tackling large, complex programming assignments that involve many moving parts.
 Additionally, I hope to use web technologies to develop data driven web applications that I can 
 showcase on my portfolio and hopefully extend these skills further into a career. 
+
+![](photo.jpg)
