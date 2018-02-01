@@ -4,6 +4,8 @@
 		<title>CSS Menu</title>
 		<style>
 
+			/* Unordered list holds the dropdown buttons and each dropdown button 
+			becomes an <li> element in the unordered list. */
 			ul {
 				margin: 0;
 				padding: 0;
@@ -12,11 +14,14 @@
 				
 			}
 
+			/* position each <li> element to the left. */
 			li {
 				float: left;
 
 			}
 
+			/* Only <li> elements with element <a> or class="dropdown_button" will have 
+			these attributes. */
 			li a, .dropdown_button {
 				display: inline-block;
 				text-decoration: none;
@@ -25,18 +30,20 @@
 			}
 
 
+			/* Display:inline-block does not start on new line, allows you to set its own height and width values, wraps around width nicely. */
 			li.dropdown_menu {
 				display: inline-block;
 
 			}
 
-			/* Hide the drodown content by default */
+			/* Hide the dropdown content by default */
 			.dropdown_content {
 				display: none;
 				position: absolute;
 
 			}
 
+			/* Display:block puts each <a> element on its own line. (Displays an element as a block element (like <p>)) */
 			.dropdown_content a {
 				color: black;
 				display: block;
