@@ -10,6 +10,10 @@
 
     <title>Hello, world!</title>
     <style>
+      .navbar{
+        padding: 0 1rem;
+      }
+
       .col-lg-4- {
         background: rgb(67, 112, 115);
         height: 200px; 
@@ -59,18 +63,33 @@
 
     <div class="container">
       <h1>What do you MEME?</h1>
+      <!-- Add an Alert -->
+      <div class="alert alert-success">
+        <b>New!</b> You can now choose your own pictures.
+          <!-- Add an Alert Dismissal Button -->
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
       <p>A paragraph</p>
 
       <div class="row">
         <div class="col-lg-4 col-sm-6">
           <div class="card" style="width: 18rem;">
+            <div class="card-header">
+
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>        
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-          </div>          
+          </div>  
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="card" style="width: 18rem;">
@@ -101,5 +120,14 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      $(function(){
+        var elements = $(".card .close");
+        elements.click(function(evt){
+          $(this).closest(".card").hide() ; // Which ever card is closest, hide it.
+        });
+
+      });
+    </script>
   </body>
 </html>
