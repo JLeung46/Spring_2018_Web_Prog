@@ -1,21 +1,135 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\margl1440\margr1440\vieww13540\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \f0\fs24 \cf0 To Initialize NPM:\
 \
-npm init\
+\'91npm init\'92\
 \
 Should have something called package.json\
 To install dependencies:\
 \
-npm install bootstrap --save\
-npm install popper --save\
+\'91npm install bootstrap --save\'92\
+\'91npm install popper --save\'92\
 \
 To run javascript file code (located in folder \'91server\'92):\
 \
-node server/index.js\
+\'91node server/index.js\'92\
 \
-output: \'93Hello World\'94}
+output: \'93Hello World\'94\
+\
+==============================================================\
+\
+express.js is the server\
+\
+index.html in the client\
+\
+NPM install dependencies onto the server\
+\
+================================================================\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 Nodemon\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 \'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+Install nodemon only on dev server\
+\
+\'91npm install nodemon --save-dev\'92\
+\
+\
+Run local nodemon package\
+ \
+\'92npx nodemon server server/index.js\'92\
+\
+ The above line says - watch folder server and if anything changes, run server/index.js\
+\
+This starts the local host server and when you change sever/index.js and save it, the changes will automatically take place\
+on the local server.\
+\
+\
+Add a new script that runs on the server:\
+\
+Type \'94server": "nodemon server server/index.js" under \'93scripts\'94 in package.json\
+\
+Now in the terminal type: \
+\
+\'93npm run server\'94\
+\
+The command you just added under scripts will be run (local host server should start).\
+\
+=============================================================================\
+\
+Type Script\
+\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+typescriptlang.org\
+\
+\'91npm install \'97save-dev typescript\'92\
+\
+make a new folder called src\
+\
+make a file called 1st.ts\
+\
+run local package using npx\
+\
+\'92npx tsc src/1st.ts\'92\
+\
+Can delete above file after, just an example.\
+\
+===============================================================================\
+\
+ES 2015\
+\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+MVC - Model View Controller\
+\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+Create a file called Model.ts in src to write functions for alerts.\
+\
+Create a file called Controller.ts in src to display alerts to user.\
+\
+The controller displays the messages to the user.\
+\
+compile the controller by typing:\
+\
+\'92npx tsc src/Controller.ts\'92\
+\
+which makes the js files.\
+\
+\
+Install WebPack:\
+\
+\'93npm install web pack\'97save-dev\'94\
+\
+\'93npm install webpack-cli -D\'94\
+\
+Compile controller.js using web pack:\
+\
+\'93npx webpack src/controller.js --output dist/controller.js\'94\
+\
+\
+\
+\
+Functional Programming\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+ - Pass functions into functions\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
