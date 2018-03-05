@@ -116,12 +116,62 @@ Compile controller.js using web pack:\
 \'93npx webpack src/controller.js --output dist/controller.js\'94\
 \
 \
+==================================================================================\
+\
+INSTALL ANGULAR:\
+\
+npm install @angular/cli -g\
+\
+Make A New Angular Project:\
+\
+ng new WhatDoYouMeme2\
+\
+copy over the required dependencies in the new package.son\
+\
+Take all files from the new project and copy it into the old project\
+\
+make sure to copy over the hidden file .angular-cli.json\
+\
+Everytime you change package.son remember to run npm install\
+\
+Run a server to recompile everything:\
+\
+\'93ng serve -o\'94\
+\
+Generate components in the src/app folder:\
+\
+ng generate component nav\
+ng generate component messages\
+ng generate component home\
+ng generate component game\
 \
 \
-Functional Programming\
-\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
- - Pass functions into functions\
+Make a Nav Bar:\
 \
+In src/app/nav/nav.component.html\
+\
+Paste in the NavBar code\
+\
+Inside app.component.html:\
+\
+<app-nav></app-nav>\
+<div class=\'93container\'94>\
+	<app-messages></app-messages>\
+	<app-home></app-home>\
+</div>\
+\
+\
+\
+Add Bootstrap to styles:\
+\
+In .angular-cli.json:\
+\
+under \'93styles\'94\
+\'93node_modules/bootstrap/dist/css/boostrap.css\'94\
+\
+The new nav bar should show up\
+\
+CTRL + C to kill the server\
 \
 \
 \
