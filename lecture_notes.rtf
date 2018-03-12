@@ -120,7 +120,7 @@ Compile controller.js using web pack:\
 \
 INSTALL ANGULAR:\
 \
-npm install @angular/cli -g\
+sudo npm install @angular/cli -g\
 \
 Make A New Angular Project:\
 \
@@ -161,7 +161,6 @@ Inside app.component.html:\
 </div>\
 \
 \
-\
 Add Bootstrap to styles:\
 \
 In .angular-cli.json:\
@@ -173,7 +172,59 @@ The new nav bar should show up\
 \
 CTRL + C to kill the server\
 \
+========================================================================\
 \
+Inversion of Control (IOC):\
+\
+\
+Dependency of Injection:\
+\
+app.module.ts pulls all the components together.\
+\
+\
+\
+Index.html\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+	AppComponent\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+			Nav\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+			Messages\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+			Home/Game\
+\
+\
+Set Up Routing:\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+Import RouterModule in app.module.ts by typing:\
+\
+\'93import \{ RouterModule, Routes \} from '@angular/router\'92;\'94\
+\
+Under \'93imports\'94 type:\
+\
+    RouterModule.forRoot([\
+      \{ path: 'home', component: HomeComponent\},\
+      \{ path: 'game', component: GameComponent\},\
+      \{ path: '', redirectTo: '/home', patchMatch: 'full'\}\
+\
+    ])\
+\
+In app.component.html add the Router Outlet:\
+\
+    <router-outlet></router-outlet>\
+\
+\
+Add Router Link in nav.component.html to make pages load faster\
+\
+Replace href link to:\
+\
+routerLink:\
+\
+       <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>\
+\
+To change the highlighting add routerLinkActive=\'91active\'92\
+\
+                <a class="nav-link" routerLink="/home" routerLinkActive='active'>Home <span class="sr-only">(current)</span></a>\
 \
 \
 \
