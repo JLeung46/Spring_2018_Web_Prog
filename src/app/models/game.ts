@@ -8,18 +8,13 @@ export class Game {
 	];
 
 	Players: User[] = [
-		"Player 1",
-		"Player 2",
-		"Player 3"
+		{ Name: "Jack" }
 
 	];
 
 	Picture: string = 'https://media3.s-nbcnews.com/j/msnbc/components/video/201803/tdy_news_welker_trump_180315_1920x1080.nbcnews-ux-1080-600.jpg';
 
 	PlayedQuotes: Quote[] = [
-		"Played Quote 1",
-		"Played Quote 2",
-		"Played Quote 3"
 
 	];
 }
