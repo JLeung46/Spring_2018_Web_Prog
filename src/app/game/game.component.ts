@@ -18,7 +18,7 @@ export class GameComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitQuote(e: MouseEvent, text: string){
+  submitQuote(e: MouseEvent, text: string) {
   	e.preventDefault();
 
   	if(this.MyPlayedQuote()) return;
@@ -28,8 +28,12 @@ export class GameComponent implements OnInit {
 
   }
 
-  MyPlayedQuote(): Quote | null {
-  	return this.Model.PlayedQuotes.find( x => x.PlayerName == this.Me.Name );
-  }
+  MyPlayedQuote = () => this.Model.PlayedQuotes.find( x => x.PlayerName == this.Me.Name );
+
+  ChosenQuote = () => this.Model.PlayedQuotes.find( x => x.Chosen );
+
+  IsEveryoneDone = () => this.Model.PlayedQuotes.length == this.Model.Players.length - 1;
+
+  IAmTheDealer = () => this.Me.Name == this.Model.Dealer;
 
 }
