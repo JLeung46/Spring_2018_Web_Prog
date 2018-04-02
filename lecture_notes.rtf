@@ -293,10 +293,50 @@ Move the foreach loop to My quotes and add the foreach loops to players and play
 \
 ===================================================================\
 \
+*****************SERVER SIDE PROGRAMMING*********************\
+\
+In the server folder create a folder called Game\
+\
+Inside Game create model.js & controller.js\
+\
+Copy what\'92s inside SimpleController.js and paste it inside controller.js\
+\
+Add const game = require('.game/Controller');\
+\
+app.use('/simple', simple)\
+	.use('/game', game)\
+	.listen(port);\
+\
+to index.js\
+\
+Type:\
+\
+npm run server\
 \
 \
+When you have a list of memes we want all the memes to be usable in different games so lets do this.\
+\
+Edit model.js:\
 \
 \
+const QuotesStack = [\
+\
+\
+];\
+\
+const PicturesStack = [\
+\
+\
+];\
+\
+class Game\{\
+	Players = [];\
+	DealerId = '';\
+\
+	PlayedQuotes = [];\
+	Picture = '';	\
+\
+\}\
 \
 \
 \

@@ -5,6 +5,11 @@ const servername = "localhost";
 const port = 8080;
 const simple = require('./simpleController');
 
-app.use('/simple', simple).listen(port);
+const game = require('./game/Controller');
+
+
+app.use('/simple', simple)
+	.use('/game', game)
+	.listen(port);
 
 console.log("running on http:// " + servername + ":" + port)
