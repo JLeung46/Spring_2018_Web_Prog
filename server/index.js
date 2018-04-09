@@ -3,8 +3,8 @@ var app = express()
 
 const servername = "localhost";
 const port = 8080;
-const simple = require('./simpleController');
 
+const simple = require('./simpleController');
 const game = require('./game/Controller');
 
 
