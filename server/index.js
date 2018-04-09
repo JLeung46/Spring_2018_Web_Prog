@@ -8,7 +8,14 @@ const simple = require('./simpleController');
 const game = require('./game/Controller');
 
 
-app.use('/simple', simple)
+app
+	.use('/', (req, res, next) = > {
+		res.header("Access-Control-Allow-Origin", "*")
+		res.header("Access-Control-Allow-Headers", "*")
+		next();
+
+	})
+	.use('/simple', simple)
 	.use('/game', game)
 	.listen(port);
 

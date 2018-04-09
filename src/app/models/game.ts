@@ -1,16 +1,9 @@
 export class Game {
-	
-	MyQuotes: string[] = [
-		"Quote 1",
-		"Quote 2",
-		"Quote 3"
-
-	];
 
 	Players: User[] = [
-		{ Name: "Jack Leung" },
-		{Name: "Joe Bob"},
-		{Name: "Sam Olly"}
+		{ Name: "Jack Leung", MyQuotes: [] },
+		{Name: "Joe Bob", MyQuotes: [] },
+		{Name: "Sam Olly", MyQuotes: [] }
 
 	];
 
@@ -27,6 +20,13 @@ export class Game {
 export class User {
 	
 	Name: string;
+
+	MyQuotes: string[] = [
+		"Quote 1",
+		"Quote 2",
+		"Quote 3"
+
+	];
 }
 
 export class Quote {
