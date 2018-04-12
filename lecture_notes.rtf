@@ -359,22 +359,78 @@ axios.get('https://api.imgflip.com/get_memes')\
 \
 Inside SERVER/GAME:\
 \
-controller.js is where you put all the get and post requests\
+controller.js is where you put all the get and post requests - maps urls to actions where the actions are defined in Model\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+index.js just sets up the server\
+\
 \cf0 \cb1 \kerning1\expnd0\expndtw0 model.js is where you define the functionality\
 \
 After post runs, it updates each player\
 \
 =========================================================================================\
+Client Stuff\
 \
-game.component.ts is the client side code\
+game.component.ts is the client side code for running the game\
+\
+game.ts is just the models, a bunch of interfaces\
 \
 \'91ng serve -o\'92 runs the client side server\
 \
 ================================================================================\
+run client side code: ng serve -o\
+run server side code: npm run server\
+\
+Initially there is no picture on the client\
+After you send a picture post request on postman using the server side code\
+The client server gets updated with the picture which will now show up\
+\
+==============================================================================\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 \ul \ulc0 ADD A BUTTON TO FLIP PICTURE:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 \ulnone \
+Inside game.component.html ADD THE BUTTON INTERFACE CODE:\
+\
+            <div class="card">\
+                <img class="card-img" [src]="Model.Picture.url" />\
+                <div class="card-img-overlay" style="text-align: center">\
+                	<button class="btn btn-success btn-lg" (click)="flipPicture($event)">Flip Picture</button>\
+	</div>\
+\
+Inside game.component.ts write the action code:\
+\
+  flipPicture(e: MouseEvent)\{\
+    this.http.post(this._api + "/picture", \{\})\
+      .subscribe();\
+  \}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 \ul \ulc0 Add Middleware in Index.js SO THAT WE CAN LOAD STATIC FILES:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 \ulnone 	\
+	const path = require('path');\
 \
 \
+	.use('/', express.static(path.join(__dirname, "../dist/")))\
+\
+	\'85\
+\
+	.use('/', (req, res, next) => \{\
+		res.sendFile(path.join(__dirname, "../dist/index.html"));\
+	\})\
+\
+create a new folder called list\
+\
+build all angular code locally:\
+\
+npm run build\
+\
+New files should be created in dist\
 \
 \
 \

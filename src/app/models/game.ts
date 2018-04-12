@@ -21,12 +21,7 @@ export class User {
 	
 	Name: string;
 
-	MyQuotes: string[] = [
-		"Quote 1",
-		"Quote 2",
-		"Quote 3"
-
-	];
+	MyQuotes: string[];
 }
 
 export class Quote {
