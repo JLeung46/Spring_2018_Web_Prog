@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path');
+const bodyParser = require('body-parser');
 var app = express()
 
 const servername = "localhost";
@@ -10,6 +11,8 @@ const game = require('./game/Controller');
 
 
 app
+	.use(bodyParser.json())
+	.use(bodyParser.urlencoded({ extended: false }))
 	.use('/', (req, res, next) => {
 		res.header("Access-Control-Allow-Origin", "*")
 		res.header("Access-Control-Allow-Headers", "*")

@@ -384,6 +384,8 @@ Initially there is no picture on the client\
 After you send a picture post request on postman using the server side code\
 The client server gets updated with the picture which will now show up\
 \
+The only time you send something to the server is during a post\
+\
 ==============================================================================\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
@@ -409,7 +411,7 @@ Inside game.component.ts write the action code:\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b \cf0 \ul \ulc0 Add Middleware in Index.js SO THAT WE CAN LOAD STATIC FILES:\
+\b \cf0 \ul Add Middleware in Index.js SO THAT WE CAN LOAD STATIC FILES:\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b0 \cf0 \ulnone 	\
@@ -432,6 +434,49 @@ npm run build\
 \
 New files should be created in dist\
 \
+=======================================================================\
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 \ul SENDING INFORMATION:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 \ulnone In order to read the body from the request after submitting a quote, you need some middleware to parse the variables.\
+\
+So Install:\
+\
+\'92npm i body-parser \'97save\'92\
+\
+In index.js add the line:\
+\
+const bodyParser = require('body-parser');\
+\
+app\
+	.use(bodyParser.json())\
+	.use(bodyParser.urlencoded(\{ extended: false \}))\
+\
+So when Someone submits a quote we want to make a post request that updates the server with the submitted quote and the player ID of who submitted the quote.
+\b \ul \
+\
+
+\b0 \ulnone Inside controller.js ADD THE LINES:\
+\
+    .post('/quotes', (req, res) => \{\
+    	game.SubmitQuote(req.body.Text, req.body.Player.Id)\
+    	res.send(game.FlipPicture())\
+\
+Inside game.component.ts UNDER SUBMITQUOTE(), ADD THE LINES:\
+\
+    this.http.post(this._api + "/quotes", \{ Text: text, PlayerId: this.Me.Name \})\
+      .subscribe();\
+\
+REMEMBER THAT THE SERVER EXPECTS A QUOTE AND PLAYER ID WHICH IS WHY WE ADD THOSE IN THE ARGUMENTS\
+\
+SUBSCRIBE IS WHEN WE GET A RESPONSE AND WHAT U WANT TO DO WITH THE RESPONSE\
+\
+=======================================================================================\
+\
+game.ts is kind of useless because we don\'92t need all those initializations. The server does this for us.\
 \
 }
