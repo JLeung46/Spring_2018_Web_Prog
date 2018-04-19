@@ -140,6 +140,9 @@ function Game() {
             this.DealerId = this.Players[this.DealerId = (this.DealerId + 1) % this.Players.length ] 
         } 
 
+        this.GetNextDealer = () => this.DealerIndx = (this.DealerIndx+1) % this.Players.length
+
+
 }
 
 module.exports = Game;
