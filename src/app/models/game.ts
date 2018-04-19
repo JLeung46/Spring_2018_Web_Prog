@@ -4,6 +4,8 @@ export class Game {
 
 	DealerId: string;
 
+	DealerIndx: number;
+
 	Picture: {
 		url: string
 	}

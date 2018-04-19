@@ -119,6 +119,7 @@ var iCurrentPicture = 0;
 function Game() {
         this.Players = [];
         this.DealerId = null;
+        this.DealerIndx = 0;
 
         this.PlayedQuotes = [];
         this.Picture = null;
