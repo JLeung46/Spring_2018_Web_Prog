@@ -119,29 +119,41 @@ var iCurrentPicture = 0;
 function Game() {
         this.Players = [];
         this.DealerId = null;
-        this.DealerIndx = 0;
 
         this.PlayedQuotes = [];
         this.Picture = null;
 
         this.GetQuotes = (playerId) => {
+            // Makes the dealer the first player that logs in
+            if(!this.DealerId){
+                this.DealerId = playerId;
+            }
             if(this.Players.some(x=> x.PlayerId == playerId)){
                 }else {
-                    this.Players.push({PlayerId: playerId, Name: playerId});
-                    return QuotesStack.slice(iCurrentQuote, iCurrentQuote += 7);
+                    this.Players.push({ PlayerId: playerId, Name: playerId });
+                    this.Players.push({ PlayerId: playerId, Name: playerId, Score: 0 });
                 }
+
+                    return QuotesStack.slice(iCurrentQuote, iCurrentQuote += 7);
             }
             
         this.FlipPicture = () => this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture+1) % PicturesStack.length ];
+        this.FlipPicture = () => {
+            this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture+1) % PicturesStack.length];
+            this.PlayedQuotes = [];
+
+        }
 
         this.SubmitQuote = (text, playerId) => this.PlayedQuotes.push({ Text: text, PlayerId: playerId });
+        this.SubmitQuote = (text, playerId) => {
+            if(playerId == this.DealerId) throw Error("Dealer can't submit a quote");
+            this.PlayedQuotes.push({ Text: text, PlayerId: playerId});
+        }
         this.ChooseQuote = text => {
             this.PlayedQuotes.find(x=> x.Text == text).Chosen = true;
-            this.DealerId = this.Players[this.DealerId = (this.DealerId + 1) % this.Players.length ] 
+            this.DealerId = this.Players[this.DealerId = (this.DealerId + 1) % this.Players.length ]
+            this.DealerId = this.Players[this.Players.findIndex(x=>x.PlayerId == this.DealerId) + 1 % this.Players.length].PlayerId;
         } 
-
-        this.GetNextDealer = () => this.DealerIndx = (this.DealerIndx+1) % this.Players.length
-
 
 }
 

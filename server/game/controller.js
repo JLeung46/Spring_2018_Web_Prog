@@ -13,4 +13,10 @@ module.exports = app
     .post('/quotes', (req, res) => {
     	game.SubmitQuote(req.body.Text, req.body.PlayerId)
     	res.send(game.FlipPicture())
+    	try {
+    		game.SubmitQuote(req.body.Text, req.body.PlayerId);
+    		res.send({ success:true });
+    	} catch (error){
+    		res.status(403).send({ success: false, message:error.message});
+    	}
 })
