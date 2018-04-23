@@ -33,7 +33,6 @@ export class GameComponent implements OnInit {
   submitQuote(e: MouseEvent, text: string){
     e.preventDefault();
 
-    if(this.MyPlayedQuote()) return;
     if(this.MyPlayedQuote() || this.IAmTheDealer()) return;
 
     this.http.post(this._api + "/quotes", { Text: text, PlayerId: this.Me.Name })
