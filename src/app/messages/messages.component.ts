@@ -9,12 +9,15 @@ export class MessagesComponent implements OnInit {
 
 	Messages: string[];
 
-  constructor() {
-  	this.Messages = ['You can now choose your own pictures.'];
+  constructor( public Messages: MessagesService) {
 
   }
 
   ngOnInit() {
+  }
+
+  delete(i: number){
+  	this.Messages.Messages.splice(i, 1);
   }
 
 }

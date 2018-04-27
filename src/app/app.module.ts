@@ -9,6 +9,9 @@ import { NavComponent } from './nav/nav.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
+import { MessagesComponent } from './services/messages.component';
+import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -17,7 +20,8 @@ import { GameComponent } from './game/game.component';
     NavComponent,
     MessagesComponent,
     HomeComponent,
-    GameComponent
+    GameComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { GameComponent } from './game/game.component';
 
     ])
   ],
-  providers: [],
+  providers: [MessagesService, GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

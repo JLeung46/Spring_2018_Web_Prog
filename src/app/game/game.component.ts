@@ -10,10 +10,10 @@ import { Game, User, Quote } from '../models/game';
 export class GameComponent implements OnInit {
 
     Model = new Game();
-    Me: User;
     private _api = "http://localhost:8080/game";
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private _Messages: MessagesService, private _Game: GameService) {
+    this.Me = _Game.Me;
     setInterval(()=> this.refresh(), 1000)
   }
 
@@ -26,6 +26,7 @@ export class GameComponent implements OnInit {
   }
 
   flipPicture(e: MouseEvent){
+    this._Messages.Messages.push({ Text: 'picture Flipped', Type: 'success'})
     this.http.post(this._api + "/picture",{})
         .subscribe();
   }
@@ -34,7 +35,8 @@ export class GameComponent implements OnInit {
     e.preventDefault();
 
     if(this.MyPlayedQuote() || this.IAmTheDealer()) return;
-
+    
+    this._Messages.Messages.push({ Text: 'picture Flipped', Type: 'success'})
     this.http.post(this._api + "/quotes", { Text: text, PlayerId: this.Me.Name })
         .subscribe(data=> {
             if(data.json().success){
@@ -54,9 +56,9 @@ export class GameComponent implements OnInit {
       });
   }
 
-  login(name: string){
+  join(name: string){
     this.http.get(this._api + "/quotes", { params : { playerId: name } })
-    .subscribe(data=> this.Me =  {Name: name, MyQuotes: data.json() } )
+    .subscribe(data=> this.Me.MyQuotes = data.json())
   }
 
   MyPlayedQuote = () => this.Model.PlayedQuotes.find( x => x.PlayerId == this.Me.Name );

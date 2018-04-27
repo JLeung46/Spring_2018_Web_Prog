@@ -477,6 +477,68 @@ SUBSCRIBE IS WHEN WE GET A RESPONSE AND WHAT U WANT TO DO WITH THE RESPONSE\
 \
 =======================================================================================\
 \
-game.ts is kind of useless because we don\'92t need all those initializations. The server does this for us.\
+\ul ATTACHING A SERVICE TO MESSAGES COMPONENT:\
+\ulnone \
+Create a Service:\
+\
+ng generate service services/messages\
+\
+Have to Import service in app.module.ts\
+Providers is where Services go\
+\
+Put \'91MessagesService\'92 Inside \'91Providers\'92\
+\
+Add:\
+\
+import \{ MessagesComponent \} from './services/messages.component';\
+\
+Inside Messages.components.ts ADD:\
+\
+  constructor( public Messages: MessagesService) \{\
+  	this.Messages = ['You can now choose your own pictures.'];\
+\
+Remove the this.Messages\
+\
+Inside Messages.service.ts ADD:\
+\
+	Messages: string[];\
+\
+  constructor() \{\
+  	this.Messages['This is initialized in the service']\
+   \}\
+\
+Inside messages.component.html ADD:\
+\
+	  \{\{Messages.Messages[0]\}\}\
+\
+All we did was move the Messages Component on the client side to the Service!\
+\
+\
+Inside game component.ts:\
+\
+You can add messages to pop up wherever you want!\
+\
+Now apply the same logic to the User Services\
+\
+ng generate service services/game\
+\
+Add the GameService to Providers\
+\
+Move \
+\
+Me:User; \
+\
+in game.component.ts to the Service\
+\
+Create a Login Component\
+\
+ng generate component login\
+\
+Add the login component to the Router in app.module.ts\
+\
+\
+\
+\
+\
 \
 }
