@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from "@angular/http";
 import { Game, User, Quote } from '../models/game';
+import {MessagesService} from '../services/messages.service';
+import { GameService } from '../services/game.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -10,6 +13,8 @@ import { Game, User, Quote } from '../models/game';
 export class GameComponent implements OnInit {
 
     Model = new Game();
+    Me: User;
+    
     private _api = "http://localhost:8080/game";
 
   constructor(private http: Http, private _Messages: MessagesService, private _Game: GameService) {
@@ -36,7 +41,7 @@ export class GameComponent implements OnInit {
 
     if(this.MyPlayedQuote() || this.IAmTheDealer()) return;
     
-    this._Messages.Messages.push({ Text: 'picture Flipped', Type: 'success'})
+    this._Messages.Messages.push({ Text: 'Quote submitted', Type: 'success'})
     this.http.post(this._api + "/quotes", { Text: text, PlayerId: this.Me.Name })
         .subscribe(data=> {
             if(data.json().success){
@@ -57,6 +62,7 @@ export class GameComponent implements OnInit {
   }
 
   join(name: string){
+    this._Messages.Messages.push({Text: 'You\'ve Logged In. Welcome ' + name, Type: 'success'})
     this.http.get(this._api + "/quotes", { params : { playerId: name } })
     .subscribe(data=> this.Me.MyQuotes = data.json())
   }

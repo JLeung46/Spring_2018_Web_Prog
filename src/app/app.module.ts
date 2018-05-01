@@ -9,7 +9,8 @@ import { NavComponent } from './nav/nav.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
-import { MessagesComponent } from './services/messages.component';
+import { MessagesService } from './services/messages.service';
+import { GameService } from './services/game.service';
 import { LoginComponent } from './login/login.component';
 
 

@@ -1,6 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red63\green63\blue63;\red249\green249\blue249;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red63\green63\blue63;\red249\green249\blue249;\red46\green95\blue225;
+\red245\green245\blue245;\red42\green55\blue62;\red136\green0\blue160;\red21\green129\blue62;}
 \margl1440\margr1440\vieww27120\viewh12600\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
@@ -477,8 +478,10 @@ SUBSCRIBE IS WHEN WE GET A RESPONSE AND WHAT U WANT TO DO WITH THE RESPONSE\
 \
 =======================================================================================\
 \
-\ul ATTACHING A SERVICE TO MESSAGES COMPONENT:\
-\ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \ul ATTACHING A SERVICE TO MESSAGES COMPONENT:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \ulnone \
 Create a Service:\
 \
 ng generate service services/messages\
@@ -535,6 +538,59 @@ Create a Login Component\
 ng generate component login\
 \
 Add the login component to the Router in app.module.ts\
+\
+\
+\
+=======================================================================================================================================\
+\
+OAUTH - gives third parties access to their data\
+\
+So we want Facebook / Google to be able to access the information from our App\
+\
+Google:\
+\
+console.developers.google.com\
+\
+Put the Javascript client library in src/index.html\
+underneath   <app-root></app-root>\
+\
+\pard\pardeftab720\sl280
+
+\f1\fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 <script\cf6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6  \cf7 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 src\cf6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 =\cf8 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec8 "https://smartlock.google.com/client"\cf4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 ></script>\
+\
+\
+\cf0 Use this WebSite:\
+\
+{\field{\*\fldinst{HYPERLINK "https://developers.google.com/identity/one-tap/web/retrieve-credentials"}}{\fldrslt https://developers.google.com/identity/one-tap/web/retrieve-credentials}}\
+\
+\
+FaceBook:\
+\
+developers.facebook.com\
+\
+Under Apps Go To Facebook login and click Setup, click Web, \
+\
+put some website url in\
+\
+copy the code\
+\
+in login.component.ts\
+\
+paste in that code inside the constructor.\
+\
+\pard\pardeftab720\sl280
+\cf6 \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
 \
 \
 \
